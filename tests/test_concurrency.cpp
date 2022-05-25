@@ -41,7 +41,16 @@ void test_for_set_multiple_times()
     std::future<int> fut = prom.get_future(); // 和 future 关联.
     std::thread t(set_multiple_times, std::ref(fut)); // 将 future 交给另外一个线程t.
     prom.set_value(10); // 设置共享状态的值, 此处和线程t保持同步.
-    prom.set_value(100); // 设置共享状态的值, 此处和线程t保持同步.
+    try
+    {
+        prom.set_value(100); // 多次设置抛出异常
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+    
     t.join();
 }
 
