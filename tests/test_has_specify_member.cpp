@@ -6,7 +6,7 @@
 TEST(has_specify_member_test, forstructure)
 {
     std::stack<int> stints;
-    EXPECT_TRUE(tpl_utils::HasSpecifyMember<std::stack<int>>::value);
+    EXPECT_TRUE(dlcpp::tpl_utils::HasSpecifyMember<std::stack<int>>::value);
 }
 
 
@@ -19,5 +19,5 @@ public:
 
 TEST(has_specify_member_test, forfunction)
 {
-    EXPECT_TRUE((tpl_utils::thread_rounter<TestMember,&TestMember::run>(0)== NULL));
+    EXPECT_TRUE((dlcpp::tpl_utils::thread_rounter<TestMember,&TestMember::run>(0)== NULL));
 }

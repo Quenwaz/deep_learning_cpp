@@ -13,7 +13,7 @@
 #include <type_traits>
 #include <functional>
 
-namespace tpl_utils{
+namespace dlcpp::tpl_utils{
 template <typename T>
 struct Callback;
 
